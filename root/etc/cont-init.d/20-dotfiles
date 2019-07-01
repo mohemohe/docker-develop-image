@@ -1,0 +1,9 @@
+#!/bin/bash
+if [[ "${DEBUG}" == "1" ]]; then
+    set -x
+fi
+
+ln -nfs /home/_/.dotfiles /home/"${USER:-dockeruser}"/.dotfiles
+ln -nfs /home/_/.zprezto /home/"${USER:-dockeruser}"/.zprezto
+/usr/bin/env __DOTFILES="/home/${USER:-dockeruser}/.dotfiles" HOME="/home/${USER:-dockeruser}" CI="1" SKIP_UPDATE="1" SILENT="1" "/home/${USER:-dockeruser}/.dotfiles/_init.sh"
+chown -R "${USER:-dockeruser}": /home/_ "/home/${USER:-dockeruser}"

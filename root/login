@@ -1,0 +1,7 @@
+#!/bin/bash
+if [[ "${DEBUG}" == "1" ]]; then
+    set -x
+fi
+
+_USER="$(getent passwd "${UID:-1000}" | cut -d':' -f1)"
+exec sudo -u "${_USER}" -i
