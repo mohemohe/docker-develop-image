@@ -5,7 +5,7 @@ RUN \
     set -xe; \
     cd /var/tmp; \
     pacman -Syu --noconfirm; \
-    pacman -S --noconfirm awk aws-cli binutils docker docker-compose fakeroot fcitx-im fcitx-mozc file git jshon lxqt neofetch openbox openssh otf-ipafont tar tigervnc tmux vim wget zsh; \
+    pacman -S --noconfirm awk aws-cli binutils docker docker-compose fakeroot fcitx-im fcitx-mozc file git jshon xfce4 neofetch openssh otf-ipafont tar tigervnc tmux vim wget xf86-video-dummy xorg zsh; \
     wget https://github.com/just-containers/s6-overlay/releases/download/v1.22.1.0/s6-overlay-amd64.tar.gz; \
     tar xvf s6-overlay-amd64.tar.gz; \
     set +e; \

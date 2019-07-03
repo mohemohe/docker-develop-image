@@ -2,7 +2,7 @@
 
 unset SESSION_MANAGER
 unset DBUS_SESSION_BUS_ADDRESS
-
+export DISPLAY=:1
 export LANG="ja_JP.UTF-8"
 export XMODIFIERS="@im=fcitx"
 export XMODIFIER="@im=fcitx"
@@ -10,6 +10,5 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export DefaultIMModule=fcitx
 
-eval $(dbus-launch)
-
-exec startlxqt
+eval `dbus-launch --sh-syntax –exit-with-session`
+exec startxfce4
