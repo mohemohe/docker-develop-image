@@ -1,0 +1,17 @@
+#!/bin/bash
+if [[ "${DEBUG}" == "1" ]]; then
+    set -x
+fi
+
+if [ ! -f /var/lib/dbus/machine-id ]; then
+    dbus-uuidgen > /var/lib/dbus/machine-id
+fi
+
+if [ ! -d "/home/${USER:-dockeruser}/.vnc" ]; then
+    mkdir -p "/home/${USER:-dockeruser}/.vnc"
+    echo "${VNC_PASSWORD:-dolphin}" | vncpasswd -f > "/home/${USER:-dockeruser}/.vnc/passwd"
+    cp -f /opt/templates/vnc/xstartup "/home/${USER:-dockeruser}/.vnc/xstartup"
+    chmod 600 "/home/${USER:-dockeruser}/.vnc/passwd"
+    chmod +x "/home/${USER:-dockeruser}/.vnc/xstartup"
+    chown -R "${USER:-dockeruser}":"${USER:-dockeruser}" "/home/${USER:-dockeruser}/.vnc"
+fi

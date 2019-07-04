@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo -u "${USER:-dockeruser}" -i s6-envuidgid "${USER:-dockeruser}" vncserver :1 -fg -autokill -geometry 1440x900 &> /tmp/vnc.log

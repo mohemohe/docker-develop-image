@@ -5,3 +5,4 @@ fi
 
 groupadd -f -g "${GID:-1000}" "${USER:-dockeruser}"
 useradd -G wheel,docker -g "${GID:-1000}" -u "${UID:-1000}" -s /bin/zsh -m "${USER:-dockeruser}"
+true
