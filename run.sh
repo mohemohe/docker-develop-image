@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 docker run \
        --rm \
        -it \
@@ -9,4 +9,5 @@ docker run \
        -v "${HOME}/.ssh:/home/$(whoami)/.ssh" \
        -v "${HOME}/.aws:/home/$(whoami)/.aws" \
        -p 127.0.0.1:55901:5901 \
+       -v dev_home:/home/mohemohe \
        dev

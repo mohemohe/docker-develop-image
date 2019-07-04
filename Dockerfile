@@ -4,8 +4,9 @@ ADD root/ /
 RUN \
     set -xe; \
     cd /var/tmp; \
+    locale-gen; \
     pacman -Syu --noconfirm; \
-    pacman -S --noconfirm awk aws-cli binutils docker docker-compose fakeroot fcitx-im fcitx-mozc file git jshon xfce4 neofetch openssh otf-ipafont tar tigervnc tmux vim wget xf86-video-dummy xorg zsh; \
+    pacman -S --noconfirm arc-gtk-theme awk aws-cli binutils docker docker-compose fakeroot fcitx-im fcitx-mozc file firefox firefox-i18n-ja git gnome-system-monitor jshon neofetch noto-fonts noto-fonts-cjk openssh papirus-icon-theme pluma tar tigervnc tmux vim wget xfce4 xfce4-whiskermenu-plugin zsh; \
     wget https://github.com/just-containers/s6-overlay/releases/download/v1.22.1.0/s6-overlay-amd64.tar.gz; \
     tar xvf s6-overlay-amd64.tar.gz; \
     set +e; \

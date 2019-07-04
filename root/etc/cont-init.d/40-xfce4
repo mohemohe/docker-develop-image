@@ -1,0 +1,10 @@
+#!/bin/bash
+if [[ "${DEBUG}" == "1" ]]; then
+    set -x
+fi
+
+if [ ! -d "/home/${USER:-dockeruser}/.config/xfce4" ]; then
+    mkdir -p "/home/${USER:-dockeruser}/.config"
+    cp -rf /opt/templates/xfce4 "/home/${USER:-dockeruser}/.config/"
+    chown -R "${USER:-dockeruser}":"${USER:-dockeruser}" "/home/${USER:-dockeruser}/.config"
+fi
